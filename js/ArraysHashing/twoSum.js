@@ -75,12 +75,12 @@ var twoSum = function (nums, target) {
 };
 
 let testsToRun = [
-  new Test([0, 1], [[2, 7, 11, 15], 9]),
-  new Test([1, 2], [[3, 2, 4], 6]),
-  new Test([0, 1], [[3, 3], 6]),
-  new Test([2, 4], [[-1, -2, -3, -4, -5], -8]),
-  new Test([0, 2], [[-10, 7, 19, 15], 9]),
-  new Test([3, 4], [[2, 1, 9, 4, 4, 56, 90, 3], 8]),
+  new Test({ result: [0, 1], args: [[2, 7, 11, 15], 9] }),
+  new Test({ result: [1, 2], args: [[3, 2, 4], 6] }),
+  new Test({ result: [0, 1], args: [[3, 3], 6] }),
+  new Test({ result: [2, 4], args: [[-1, -2, -3, -4, -5], -8] }),
+  new Test({ result: [0, 2], args: [[-10, 7, 19, 15], 9] }),
+  new Test({ result: [3, 4], args: [[2, 1, 9, 4, 4, 56, 90, 3], 8] }),
 ];
 const test = new UnitTests(twoSum, testsToRun);
 test.run();

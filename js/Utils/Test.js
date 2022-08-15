@@ -26,12 +26,13 @@ class UnitTests {
 class Test {
   /**
    * Class to have uniformed test data to run against
+   * It would be nice to have type script here since an Interface defining the Test data object
    * @param {*} result
    * @param {Array} args
    */
-  constructor(result, args) {
-    this.result = result;
-    this.args = args;
+  constructor(params) {
+    this.result = params.result;
+    this.args = params.args;
   }
 }
 

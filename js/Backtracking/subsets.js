@@ -32,8 +32,11 @@ var subsets = function (nums) {
 };
 
 let testsToRun = [
-  new Test([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]], [[1, 2, 3]]),
-  new Test([[], [0]], [[0]]),
+  new Test({
+    result: [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]],
+    args: [[1, 2, 3]],
+  }),
+  new Test({ result: [[], [0]], args: [[0]] }),
 ];
 const test = new UnitTests(subsets, testsToRun);
 test.run();
