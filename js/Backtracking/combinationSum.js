@@ -38,16 +38,16 @@ var combinationSum = function (candidates, target) {
 };
 
 let testsToRun = [
-  new Test({ result: [[2, 2, 3], [7]], args: [[2, 3, 6, 7], 7] }),
+  new Test({ expected: [[2, 2, 3], [7]], args: [[2, 3, 6, 7], 7] }),
   new Test({
-    result: [
+    expected: [
       [2, 2, 2, 2],
       [2, 3, 3],
       [3, 5],
     ],
     args: [[2, 3, 5], 8],
   }),
-  new Test({ result: [], args: [[2], 1] }),
+  new Test({ expected: [], args: [[2], 1] }),
 ];
 const test = new UnitTests(combinationSum, testsToRun);
 test.run();

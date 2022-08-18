@@ -29,10 +29,10 @@ var search = function (nums, target) {
   return -1;
 };
 let testsToRun = [
-  new Test({ result: 4, args: [[-1, 0, 3, 5, 9, 12], 9] }),
-  new Test({ result: -1, args: [[-1, 0, 3, 5, 9, 12], 2] }),
-  new Test({ result: 0, args: [[5], 5] }),
-  new Test({ result: 1, args: [[2, 5], 5] }),
+  new Test({ expected: 4, args: [[-1, 0, 3, 5, 9, 12], 9] }),
+  new Test({ expected: -1, args: [[-1, 0, 3, 5, 9, 12], 2] }),
+  new Test({ expected: 0, args: [[5], 5] }),
+  new Test({ expected: 1, args: [[2, 5], 5] }),
 ];
 const test = new UnitTests(search, testsToRun);
 test.run();

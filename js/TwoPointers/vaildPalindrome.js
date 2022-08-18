@@ -23,10 +23,10 @@ var isPalindrome = function (s) {
 };
 
 let testsToRun = [
-  new Test({ result: true, args: ["A man, a plan, a canal: Panama"] }),
-  new Test({ result: false, args: ["race a car"] }),
-  new Test({ result: true, args: [" "] }),
-  new Test({ result: false, args: ["0P"] }),
+  new Test({ expected: true, args: ["A man, a plan, a canal: Panama"] }),
+  new Test({ expected: false, args: ["race a car"] }),
+  new Test({ expected: true, args: [" "] }),
+  new Test({ expected: false, args: ["0P"] }),
 ];
 const test = new UnitTests(isPalindrome, testsToRun);
 test.run();

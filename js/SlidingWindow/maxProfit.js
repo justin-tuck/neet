@@ -30,8 +30,8 @@ var maxProfit = function (prices) {
 };
 
 let testsToRun = [
-  new Test({ result: 5, args: [[7, 1, 5, 3, 6, 4]] }),
-  new Test({ result: 0, args: [[7, 6, 4, 3, 1]] }),
+  new Test({ expected: 5, args: [[7, 1, 5, 3, 6, 4]] }),
+  new Test({ expected: 0, args: [[7, 6, 4, 3, 1]] }),
 ];
 const test = new UnitTests(maxProfit, testsToRun);
 test.run();

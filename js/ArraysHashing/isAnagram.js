@@ -50,8 +50,8 @@ let addLetterToMap = function (letter, map) {
 };
 
 let testsToRun = [
-  new Test({ result: true, args: ["anagram", "nagaram"] }),
-  new Test({ result: false, args: ["rat", "car"] }),
+  new Test({ expected: true, args: ["anagram", "nagaram"] }),
+  new Test({ expected: false, args: ["rat", "car"] }),
 ];
 const test = new UnitTests(isAnagram, testsToRun);
 test.run();

@@ -9,8 +9,11 @@ Leet code problems from Neet code
 First install nodejs
 
 ## Running Tests
-I created a supre simple test util that just takes in your function and a Array of Tests (expected result, Array of arguments) 
-###Example: 
+
+I created a supre simple test util that just takes in your function and a Array of Tests (expected result, Array of arguments)
+
+### Example:
+
 import { UnitTests, Test } from "../Utils/Test.js";
 
 let testsToRun = [

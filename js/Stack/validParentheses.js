@@ -41,10 +41,10 @@ var isValid = function (s) {
 };
 
 let testsToRun = [
-  new Test({ result: true, args: ["()"] }),
-  new Test({ result: true, args: ["()[]{}"] }),
-  new Test({ result: false, args: ["(]"] }),
-  new Test({ result: false, args: ["["] }),
+  new Test({ expected: true, args: ["()"] }),
+  new Test({ expected: true, args: ["()[]{}"] }),
+  new Test({ expected: false, args: ["(]"] }),
+  new Test({ expected: false, args: ["["] }),
 ];
 const test = new UnitTests(isValid, testsToRun);
 test.run();

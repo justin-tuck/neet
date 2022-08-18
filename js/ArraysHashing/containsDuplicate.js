@@ -19,8 +19,8 @@ var containsDuplicate = function (nums) {
 };
 
 let testsToRun = [
-  new Test({ result: true, args: [[1, 2, 3, 1]] }),
-  new Test({ result: false, args: [[1, 2, 3, 4]] }),
+  new Test({ expected: true, args: [[1, 2, 3, 1]] }),
+  new Test({ expected: false, args: [[1, 2, 3, 4]] }),
 ];
 const test = new UnitTests(containsDuplicate, testsToRun);
 test.run();

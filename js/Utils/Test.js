@@ -17,7 +17,8 @@ class UnitTests {
       let testData = this.testInput[i];
 
       console.log(
-        `Test ${i + 1} ${testData.result} - ${this.algo(...testData.args)}`
+        `Test ${i + 1}: expected: ${testData.expected} 
+          result: ${this.algo(...testData.args)}`
       );
     }
   }
@@ -27,11 +28,11 @@ class Test {
   /**
    * Class to have uniformed test data to run against
    * It would be nice to have type script here since an Interface defining the Test data object
-   * @param {*} result
+   * @param {*} expected
    * @param {Array} args
    */
   constructor(params) {
-    this.result = params.result;
+    this.expected = params.expected;
     this.args = params.args;
   }
 }
