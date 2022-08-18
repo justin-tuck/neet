@@ -22,5 +22,3 @@ new Test(false, [[1, 2, 3, 4]]),
 ];
 const test = new UnitTests(containsDuplicate, testsToRun);
 test.run();
-
-tests
