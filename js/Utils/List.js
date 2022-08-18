@@ -25,6 +25,9 @@ class ListUtils {
    * @return {ListNode}
    */
   static generateList(numbers) {
+    if (numbers.length === 0) {
+      return null;
+    }
     let tail = new ListNode(numbers[numbers.length - 1], null);
 
     for (let i = numbers.length - 2; i > -1; i--) {

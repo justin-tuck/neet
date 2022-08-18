@@ -15,7 +15,7 @@ var reverseList = function (head) {
     next = currentNode;
     currentNode = holder;
   }
-
+  // return next because that was the previous
   return next;
 };
 
