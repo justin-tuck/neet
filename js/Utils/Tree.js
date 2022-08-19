@@ -1,4 +1,12 @@
 class TreeNode {
+  /**
+   * Definition for a binary tree node.
+   * function TreeNode(val, left, right) {
+   *     this.val = (val===undefined ? 0 : val)
+   *     this.left = (left===undefined ? null : left)
+   *     this.right = (right===undefined ? null : right)
+   * }
+   */
   constructor(val, left, right) {
     this.val = val ? val : 0;
     this.left = left ? left : null;
@@ -39,8 +47,11 @@ class TreeUtils {
      * @param {*} numbers
      * @returns TreeNode
      */
-    let buildTreeNode = (spot, numbers) =>
-      spot < numbers.length ? createTree(numbers[spot], spot) : null;
+    let buildTreeNode = (spot, numbers) => {
+      return spot < numbers.length && numbers[spot]
+        ? createTree(numbers[spot], spot)
+        : null;
+    };
 
     return createTree(numbers[0], 0);
   }
