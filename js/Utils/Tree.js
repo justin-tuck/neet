@@ -22,9 +22,10 @@ class TreeUtils {
   /**
    * Given an array of numbers return a Binary Tree
    * @param {number[]} numbers
+   * @param {number} start - the starting spot
    * @return {TreeNode}
    */
-  static buildBinaryTree(numbers) {
+  static buildBinaryTree(numbers, start = 0) {
     /**
      * Recursive method to create binaryTree
      * Math for left node and right node (2*N + 1) and (2*N + 2)
@@ -32,8 +33,9 @@ class TreeUtils {
      * @param {number} spot
      */
     let createTree = (value, spot) => {
-      let leftSpot = 2 * spot + 1;
-      let rightSpot = 2 * spot + 2;
+      //Need to think about this - is spot + 1 and spot +2 for leet code answers
+      let leftSpot = 2 * spot;
+      let rightSpot = 2 * spot + 1;
 
       let leftNode = buildTreeNode(leftSpot, numbers);
       let rightNode = buildTreeNode(rightSpot, numbers);
@@ -53,7 +55,7 @@ class TreeUtils {
         : null;
     };
 
-    return createTree(numbers[0], 0);
+    return createTree(numbers[start], start);
   }
 
   /**
@@ -64,9 +66,9 @@ class TreeUtils {
     let result = "\n";
     let print = (prefix, node, isLeft) => {
       if (node) {
-        result += prefix + (isLeft ? "|-- " : "\\-- ") + node.val + "\n";
-        print(prefix + (isLeft ? "|   " : "    "), node.left, true);
-        print(prefix + (isLeft ? "|   " : "    "), node.right, false);
+        result += prefix + (isLeft ? "\\-- " : "|-- ") + node.val + "\n";
+        print(prefix + (isLeft ? "    " : "|   "), node.right, false);
+        print(prefix + (isLeft ? "    " : "|   "), node.left, true);
       }
     };
 

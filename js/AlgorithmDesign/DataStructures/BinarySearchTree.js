@@ -1,4 +1,4 @@
-class BS_Tree {
+class BSTree {
   constructor(val) {
     this.val = val ? val : 0;
     this.left = null;
@@ -31,7 +31,7 @@ class BS_Tree {
   }
 
   delete(val) {
-    let parent = this.val === val ? node : BSTree_helper.findParent(this, val);
+    let parent = this.val === val ? this : BSTree_helper.findParent(this, val);
 
     let [dNode, isLeft] =
       parent.left?.val === val ? [parent.left, true] : [parent.right, false];
@@ -40,15 +40,17 @@ class BS_Tree {
 
     // handle both children
     if (dNode.left && dNode.right) {
-      // check if right right left child exists
-      replacement = dNode.right.left ? dNode.right.left : dNode.right;
-
-      //do the swap dance.
-      //WIP: Setting up a infinite loop here...
-      let holderLeft = replacement.left;
-      replacement.left = dNode.left;
-      replacement.right = dNode.right.left ? dNode.right : dNode.right.right;
-      replacement.right.left = holderLeft;
+      //if dNode.right has no left child
+      if (!dNode.right.left) {
+        replacement = dNode.right;
+        replacement.left = dNode.left;
+      } else {
+        replacement = dNode.right.left;
+        // need to delete that node
+        dNode.right.delete(dNode.right.left.val);
+        replacement.right = dNode.right;
+        replacement.left = dNode.left;
+      }
     } else if (dNode.left) {
       replacement = dNode.left;
     } else if (dNode.right) {
@@ -68,9 +70,9 @@ class BS_Tree {
       let result = "\n";
       let print = (prefix, node, isLeft) => {
         if (node) {
-          result += prefix + (isLeft ? "|-- " : "\\-- ") + node.val + "\n";
-          print(prefix + (isLeft ? "|   " : "    "), node.left, true);
-          print(prefix + (isLeft ? "|   " : "    "), node.right, false);
+          result += prefix + (isLeft ? "\\-- " : "|-- ") + node.val + "\n";
+          print(prefix + (isLeft ? "    " : "|   "), node.right, false);
+          print(prefix + (isLeft ? "    " : "|   "), node.left, true);
         }
       };
 
@@ -84,7 +86,7 @@ class BS_Tree {
 
 class BSTree_helper {
   static createNode = (val) => {
-    return new BS_Tree(val);
+    return new BSTree(val);
   };
 
   static findParent = (node, val) => {
@@ -104,7 +106,7 @@ class BSTree_helper {
   };
 }
 
-let root = new BS_Tree(5);
+let root = new BSTree(5);
 root.insert(3);
 root.insert(7);
 root.insert(4);
@@ -113,14 +115,33 @@ root.insert(9);
 root.insert(8);
 root.insert(6);
 root.insert(1);
-root.insert(10);
+root.insert(12);
+root.insert(11);
+root.insert(16);
+root.insert(14);
+root.insert(13);
+root.insert(15);
+root.insert(17);
 console.log(`${root}`);
 
-root.delete(10);
+root.delete(12);
 console.log(`${root}`);
 
-root.delete(9);
-console.log(`${root}`);
+// root.delete(9);
+// console.log(`${root}`);
 
-root.delete(3);
-console.log(`${root}`);
+// root.delete(3);
+// console.log(`${root}`);
+
+// let root = new BSTree(2);
+// root.insert(1);
+// root.insert(7);
+// root.insert(4);
+// root.insert(8);
+// root.insert(3);
+// root.insert(6);
+// root.insert(5);
+// console.log(`${root}`);
+
+// root.delete(4);
+// console.log(`${root}`);
