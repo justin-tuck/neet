@@ -7,15 +7,18 @@
 let bubble_sort = (
   items,
   comparator = (a, b) => {
-    return a > b;
+    return a - b;
   }
 ) => {
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      if (comparator(items[i], items[j])) {
-        let holder = items[i];
-        items[i] = items[j];
-        items[j] = holder;
+  let swapped = true;
+  while (swapped) {
+    swapped = false;
+    for (let i = 1; i < items.length; i++) {
+      if (1 <= comparator(items[i - 1], items[i])) {
+        let holder = items[i - 1];
+        items[i - 1] = items[i];
+        items[i] = holder;
+        swapped = true;
       }
     }
   }
@@ -27,5 +30,5 @@ let sample = () => {
   bubble_sort(array);
   console.log(array);
 };
-
+sample();
 export { bubble_sort };
