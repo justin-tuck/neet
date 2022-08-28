@@ -23,6 +23,7 @@ let counting_sort = (array) => {
   for (let i = count.length - 1; i > 0; i--) {
     count[i] = count[i - 1];
   }
+  count[0] = 0; // need to make sure count is 0 for the index 0 spot
 
   // O(n) now iterate over the array placing each counted spot in the correct spot
   for (let i = 0; i < array.length; i++) {

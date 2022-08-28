@@ -6,7 +6,7 @@ import { Queue } from "../DataStructures/Queue.js";
  * @param {*} comparator
  * @returns
  */
-let merge_sort = (
+const merge_sort = (
   items,
   low,
   high,
@@ -14,35 +14,35 @@ let merge_sort = (
     return a - b;
   }
 ) => {
-  let merge = (items, low, middle, high, comparator) => {
-    let leftBuffer = new Queue();
-    let rightBuffer = new Queue();
-
-    //First populate our queues
-    //Using queues for its first in first out so we can keep the sorted order
-    for (let i = low; i <= middle; i++) leftBuffer.enqueue(items[i]);
-    for (let i = middle + 1; i <= high; i++) rightBuffer.enqueue(items[i]);
-
-    let i = low;
-    while (!(leftBuffer.size === 0 || rightBuffer.size === 0)) {
-      if (1 > comparator(leftBuffer.peek(), rightBuffer.peek())) {
-        items[i++] = leftBuffer.dequeue();
-      } else {
-        items[i++] = rightBuffer.dequeue();
-      }
-    }
-
-    //Empty out the queues
-    while (leftBuffer.size !== 0) items[i++] = leftBuffer.dequeue();
-    while (rightBuffer.size !== 0) items[i++] = rightBuffer.dequeue();
-  };
-
   if (low < high) {
     let middle = Math.floor((low + high) / 2);
     merge_sort(items, low, middle, comparator);
     merge_sort(items, middle + 1, high, comparator);
     merge(items, low, middle, high, comparator);
   }
+};
+
+const merge = (items, low, middle, high, comparator) => {
+  let leftBuffer = new Queue();
+  let rightBuffer = new Queue();
+
+  //First populate our queues
+  //Using queues for its first in first out so we can keep the sorted order
+  for (let i = low; i <= middle; i++) leftBuffer.enqueue(items[i]);
+  for (let i = middle + 1; i <= high; i++) rightBuffer.enqueue(items[i]);
+
+  let i = low;
+  while (!(leftBuffer.size === 0 || rightBuffer.size === 0)) {
+    if (1 > comparator(leftBuffer.peek(), rightBuffer.peek())) {
+      items[i++] = leftBuffer.dequeue();
+    } else {
+      items[i++] = rightBuffer.dequeue();
+    }
+  }
+
+  //Empty out the queues
+  while (leftBuffer.size !== 0) items[i++] = leftBuffer.dequeue();
+  while (rightBuffer.size !== 0) items[i++] = rightBuffer.dequeue();
 };
 
 let sample = () => {
