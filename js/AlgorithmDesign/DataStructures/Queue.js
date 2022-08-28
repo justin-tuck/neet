@@ -27,10 +27,19 @@ class Queue {
    * @returns {number}
    */
   dequeue() {
+    if (!this.head) return null;
     let val = this.head.val;
     this.head = this.head.next;
     this.size--;
     return val;
+  }
+
+  /**
+   *
+   * @returns current value at head
+   */
+  peek() {
+    return this.head ? this.head.val : null;
   }
 
   toString() {
@@ -38,18 +47,22 @@ class Queue {
   }
 }
 
-let q = new Queue();
+let sample = () => {
+  let q = new Queue();
 
-q.enqueue(1);
-q.enqueue(2);
-q.enqueue(3);
-console.log(`${q}`);
-// 1 -> 2 -> 3
+  q.enqueue(1);
+  q.enqueue(2);
+  q.enqueue(3);
+  console.log(`${q}`);
+  // 1 -> 2 -> 3
 
-q.dequeue();
-console.log(`${q}`);
-// 2 -> 3
+  q.dequeue();
+  console.log(`${q}`);
+  // 2 -> 3
 
-q.dequeue();
-console.log(`${q}`);
-// 3
+  q.dequeue();
+  console.log(`${q}`);
+  // 3
+};
+
+export { Queue };

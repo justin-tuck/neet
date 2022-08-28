@@ -1,5 +1,5 @@
 /**
- * Bubble sort steps through an array n*n times
+ * Bubble sort steps through an array starting at the front and checking each against it bubbling the weakest up
  * O(n^2)
  * @param {Array} items
  * @param {function} comparator
