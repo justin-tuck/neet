@@ -1,8 +1,16 @@
 class BSTree {
-  constructor(val) {
+  /**
+   * Binary Search tree
+   * @param {number} val
+   * @param {number[]} array
+   */
+  constructor(val, array = []) {
     this.val = val ? val : 0;
     this.left = null;
     this.right = null;
+    for (const item of array) {
+      this.insert(item);
+    }
   }
 
   search(val) {
@@ -106,42 +114,25 @@ class BSTree_helper {
   };
 }
 
-let root = new BSTree(5);
-root.insert(3);
-root.insert(7);
-root.insert(4);
-root.insert(2);
-root.insert(9);
-root.insert(8);
-root.insert(6);
-root.insert(1);
-root.insert(12);
-root.insert(11);
-root.insert(16);
-root.insert(14);
-root.insert(13);
-root.insert(15);
-root.insert(17);
-console.log(`${root}`);
+let sample = () => {
+  let root = new BSTree(
+    5,
+    [3, 7, 4, 2, 9, 8, 6, 1, 12, 11, 16, 14, 13, 15, 17]
+  );
 
-root.delete(12);
-console.log(`${root}`);
+  console.log(`${root}`);
 
-// root.delete(9);
-// console.log(`${root}`);
+  root.delete(12);
+  // root.delete(9);
+  // root.delete(3);
+  console.log(`${root}`);
 
-// root.delete(3);
-// console.log(`${root}`);
+  // let root = new BSTree(2, [1, 7, 4, 8, 3, 6, 5]);
+  // console.log(`${root}`);
+  // root.delete(4);
+  // console.log(`${root}`);
+};
 
-// let root = new BSTree(2);
-// root.insert(1);
-// root.insert(7);
-// root.insert(4);
-// root.insert(8);
-// root.insert(3);
-// root.insert(6);
-// root.insert(5);
-// console.log(`${root}`);
+// sample();
 
-// root.delete(4);
-// console.log(`${root}`);
+export { BSTree };
