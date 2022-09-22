@@ -71,18 +71,20 @@ class Graph {
   }
 }
 
-let graph = new Graph();
+function sample() {
+  let graph = new Graph();
 
-graph.read(
-  `1 2
-  1 5
-  1 6
-  2 3
-  2 5
-  3 4
-  4 5`
-);
+  graph.read(
+    `1 2
+    1 5
+    1 6
+    2 3
+    2 5
+    3 4
+    4 5`
+  );
 
-console.log(`${graph}`);
+  console.log(`${graph}`);
+}
 
 export { EdgeNode, Graph };
