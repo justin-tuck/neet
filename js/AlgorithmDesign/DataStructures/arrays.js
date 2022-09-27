@@ -193,15 +193,15 @@ const sortAnArray = () => {
   fruits.sort();
 
   // Arrow function
-  fruits.sort((a, b) => {
-    /* … */
-  });
+  // fruits.sort((a, b) => {
+  //   /* … */
+  // });
 
   // Compare function
-  fruits.sort(compareFn);
+  // fruits.sort(compareFn);
 
   // Inline compare function
-  fruits.sort(function compareFn(a, b) {
-    /* … */
-  });
+  //   fruits.sort(function compareFn(a, b) {
+  //     /* … */
+  //   });
 };
