@@ -6,10 +6,10 @@ class Heap {
    * Creates either a min or a max heap
    * height is always log(n)
    *
-   * @param {string} type either 'min' or 'max'
+   * @param {string} type either 'min' or 'max' or 'custom'
    * @param {number []} array
    */
-  constructor(type, array = []) {
+  constructor(type, array = [], comparator) {
     this.pq = []; // pq shot for priority queue
     this.pq[0] = null;
     this.n = 0;
@@ -28,8 +28,15 @@ class Heap {
           return a > b;
         };
         break;
+      case "custom":
+        if (!comparator)
+          throw new InvalidArgumentException(
+            "Custom Heap needs a comparator function."
+          );
+        this.comparator = comparator;
+        break;
       default:
-        throw new InvalidArgumentException("Option not min or max.");
+        throw new InvalidArgumentException("Option not min, max or custom.");
     }
     //build heap in O(n log(n))
     for (const val of array) {
@@ -59,6 +66,18 @@ class Heap {
     HeapUtils.bubble_down(this, 1);
 
     return value;
+  }
+
+  /**
+   *
+   * @returns most significant value
+   */
+  peek() {
+    return this.pq[1];
+  }
+
+  size() {
+    return this.n;
   }
 
   toString() {
