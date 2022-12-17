@@ -15,7 +15,7 @@ class Solution:
         weakest = []
         index = 0
         for row in mat:
-            # binary search is O(log(n)) each row while count is O(n)
+            # binary search is O(log(n)) each row while count is O(n), row.count is faster for smaller values
             num_of_ones = self.binary_search(row)  # row.count(1)
             heapq.heappush(weakest, (num_of_ones, index))
             index += 1
